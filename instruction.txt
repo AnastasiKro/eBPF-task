@@ -1,0 +1,18 @@
+sectracer.py is bcc Python script for Linux.
+It detects user actions that involve designated secret values (strings of the following format: SECRET=<secret_value>\x00 (ASCII encoding)).
+Every time a secret is read from/written to a file, the program prints 'Found secret "secret".'
+As far as eBPF techology is used, to run the program successfully, you must have superuser rights.
+
+Run the program:
+# python3 sectracer.py
+or
+# ./sectracer.py
+
+If you have permission error, use 
+# chmod +x sectracer.py 
+to get execute rights to the program.
+
+To stop the program use Ctrl+Z.
+
+If you want to filter events by given user id, pass the id as an argument:
+# ./sectracer.py <id>
